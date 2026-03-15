@@ -11,9 +11,9 @@
     "recharts": "^2.7.3"
   },
   "scripts": {
-  "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
-  "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build"
-   },
+  "start": "react-scripts start",
+  "build": "react-scripts build"
+},
   "proxy": "http://localhost:5000",
   "browserslist": {
     "production": [

@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({ 
-  baseURL: 'https://ccams-backend.onrender.com/api'
+  baseURL: 'https://ccams-backend.onrender.com/api',
+  headers: {
+    'Content-Type': 'application/json'
+  }
 });
 
 api.interceptors.request.use(config => {
@@ -9,5 +12,13 @@ api.interceptors.request.use(config => {
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
+
+api.interceptors.response.use(
+  response => response,
+  error => {
+    console.error('API Error:', error.response?.data || error.message);
+    return Promise.reject(error);
+  }
+);
 
 export default api;
